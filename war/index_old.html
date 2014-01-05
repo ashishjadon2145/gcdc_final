@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>GCDC 2013 : Vaccinate</title>
+		<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/camera.css">
+		<link rel="stylesheet" href="css/form.css">
+		<link rel="stylesheet" href="css/superfish.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/forms.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/tms-0.4.1.js"></script>
+		<script src="js/foundation.js"></script>
+		<script src="js/foundation.dropdown.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				$('.slider_wrapper')._TMS({
+					show:0,
+					pauseOnHover:false,
+					prevBu:'.prev',
+					nextBu:'.next',
+					playBu:false,
+					duration:500,
+					preset:'fade',
+					pagination:true,//'.pagination',true,'<ul></ul>'
+					pagNums:false,
+					slideshow:8000,
+					numStatus:false,
+					banners: 'fade',
+					waitBannerAnimation:false,
+					progressBar:false
+				});
+			});
+			$(document).ready(function(){
+				!function(){
+			var map=[]
+			 ,names=[]
+			 ,win=$(window)
+			 ,header=$('header')
+			 ,currClass
+			$('.content').each(function(n){
+			 map[n]=this.offsetTop
+			 names[n]=$(this).attr('id')
+			})
+			win
+			 .on('scroll',function(){
+				var i=0
+				while(map[i++]<=win.scrollTop());
+				if(currClass!==names[i-2])
+				currClass=names[i-2]
+				header.removeAttr("class").addClass(names[i-2])
+			 })
+			}(); });
+					function goToByScroll(id){
+				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+				}
+				$(document).ready(function(){
+					$().UItoTop({ easingType: 'easeOutQuart' });
+				});
+		</script>
+		
+		<script>
+
+		jQuery(document).ready(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
+	
+	</script>
+		<!--[if lt IE 8]>
+			<div style=' clear: both; text-align:center; position: relative;'>
+				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+				</a>
+			</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="">
+	
+	<!--  fb share code  -->
+			<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=215797211910886";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	<!--  fb share code ends -->
+	
+	
+<!--==============================header=================================-->
+		<header class="page1">
+			<div class="container_12">
+				<div class="grid_12">
+					<h1><a href="#" onClick="goToByScroll('page1'); return false;"><img src="images/logo.png" alt="Gerald Harris attorney at law"></a></h1>
+					<div class="menu_block">
+						<nav class="">
+							<ul class="sf-menu">
+								<li class="current men"><a onClick="goToByScroll('page1'); return false;" href="#">Home </a> <strong class="hover"></strong></li>
+								<li class="men1"><a onClick="goToByScroll('page2'); return false;" href="#">About</a><strong class="hover"></strong></li>
+								<li class=" men2"><a onClick="goToByScroll('page3'); return false;" href="#">Services</a> <strong class="hover"></strong></li>
+								
+								<!-- <li class=" men3"><a onClick="goToByScroll('page4'); return false;" href="#">Roadmap</a> <strong class="hover"></strong></li>
+								 -->
+								<li class=" men4"><a onClick="goToByScroll('page5'); return false;" href="#">Contacts</a> <strong class="hover"></strong></li>
+								<li class=" men5" style="margin-top:22px">
+								<!--  code start for the social share
+								 	
+									  <li><div class="fb-share-button" data-href="http://gcdc2013-vaccinate.appspot.com" data-type="button_count"></div></li>
+									  <div class="g-plusone" data-href="http://gcdc2013-vaccinate.appspot.com"></div>
+									  	
+											<!-- Place this tag after the last +1 button tag. 
+											<script type="text/javascript">
+											  (function() {
+											    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+											    po.src = 'https://apis.google.com/js/platform.js';
+											    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+											  })();
+												</script>
+									  
+									  		  -->
+									 
+	
+	
+			
+		
+		
+
+								</li>
+							</ul>
+						</nav>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</header>
+		
+<!--=======content================================-->
+		<div id="page1" class="content">
+			<div class="ic"></div>
+			<div class="container_12">
+				<div class="grid_12">
+				
+				<iframe src="https://docs.google.com/a/osahub.com/file/d/0B32gCB8YogDZc3FjZkxxbU85RGM/preview" width="100%" height="500"></iframe>
+					<!-- <div class="slider_wrapper">
+						<ul class="items">
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>Find the Vaccination schedule for your new born child</h2>
+								
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>Get Email Reminders on the Vaccination Day. </h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>Locate the Vaccination Center nearest to your location.</h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>Live Video Chat with our Expert.</h2>
+								</div>
+							</li>
+							<li>
+								<img src="images/spacer.gif" alt="">
+								<div class="caption banner">
+									<h2>Ask general queries to Vaccibot and get answers immediately.</h2>
+								</div>
+							</li>
+						</ul>
+						
+					</div>
+					 -->
+					
+					<div class="socials">
+						<a href="#"></a>
+						<a target="_blank" href="https://www.facebook.com/gcdc2013vaccinate"></a>
+						<a target="_blank" href="https://plus.google.com/u/0/104363043580188356897/posts"></a>
+						<a href="#"></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div id="page2" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>We want to make <a onClick=""><span>World</span></a> a  <a onClick=""><em>Better</em></a> place to live</h3>
+						<div class="text1">
+							<br /> <b>OUR MOTTO</b> is to help <a onClick=""><em>You</em></a> in taking proper care of your <b>Child</b> in 4 simple steps.
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						
+						<div class="text1"><a ><b>1.</b>Schedule</a></div>
+						<br />
+						<p>Find the vaccination schedule for your child.</p>
+						<!-- 
+						<div class="socials1">
+							<a href="https://www.facebook.com/aashishgoyal1010" target="_blank"></a>
+							<a href="https://twitter.com/goyalaashish10" target="_blank"></a>
+							<a href="https://plus.google.com/u/2/117533960620847533024" target="_blank"></a>
+						</div>
+						 -->
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<!-- <img src="images/box_img2.jpg" alt=""> -->
+						<div class="text1"><a><b>2.</b>Remember the Day</a></div><br /><p> Reminder Alerts before and on the vaccination day in your mail box.</p> 
+						<!--  
+						<div class="socials1">
+							<a href="https://www.facebook.com/anshulwall" target="_blank"></a>
+							<a href="https://twitter.com/anshulosahub" target="_blank"></a>
+							<a href="https://plus.google.com/u/2/107265195623052259103" target="_blank"></a>
+						</div>
+						 -->
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<!-- <img src="images/box_img3.jpg" alt=""> -->
+						<div class="text1"><a ><b>3.</b>Vaccinate</a></div>
+						<br />
+						<p>Find the nearest vaccination Center and immunize your child.</p>
+						<!-- 
+						<div class="socials1">
+							<a href="https://www.facebook.com/AshishJadon21" target="_blank"></a>
+							<a ></a>
+							<a ></a>
+						</div>
+						 -->
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight">
+						<!-- <img src="images/box_img4.jpg" alt=""> -->
+						<div class="text1"><a><b>4. </b>Any Problems?</a></div>
+						<br />
+						<p>
+						Consult with the doctor and act accordingly. 
+						</p>
+						<!--  
+						<div class="socials1">
+							<a href="https://www.facebook.com/ashuwall" target="_blank"></a>
+							<a ></a>
+							<a ></a>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="page3" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>Our Services</h3>
+						<div class="text1">
+							We provide following services, all of them are absolutely FREE!
+						</div>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<a href="/registration"><img src="images/box1_img1.png" alt="Register"></a>
+						<div class="text1"><a href="/registration">Register</a></div>You can register here for FREE to get timely vaccination reminders for your child via E-mail. After that you can ask queries live with our vaccination expert.
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<a href="/locator"><img src="images/box1_img2.png" alt="Locator"></a>
+						<div class="text1"><a href="/locator">Locator</a></div>Locator helps you to search a nearest vaccination center in your locality. Just enter you PIN Code and get relevant results.
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<a href="/scheduler"><img src="images/box1_img3.png" alt="Scheduler"></a>
+						<div class="text1"><a href="/scheduler">Scheduler</a></div>Using Scheduler, you can generate and download customized vaccination schedule for your child, by entering DOB.
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box maxheight1">
+						<a href="/vaccibot"><img src="images/box1_img4.png" alt="Consultation"></a>
+						<div class="text1"><a href="/vaccibot">Consultation</a></div>Here you can ask all your vaccination related query from our virtual assistant, VacciBOT. You can also ask VacciBot from your google chat.  
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div id="page4" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<h3>Roadmap</h3>
+				</div>
+				<div class="companies">
+					<div class="grid_3">
+						<img src="images/logo1.jpg" alt="">
+						<div class="text1">Company Name</div>Aliquam nibh ante, egestas id dictum  wrecommodo luctus liberoaesent.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo2.jpg" alt="">
+						<div class="text1">Company Name</div>Fusce adipiscing quam id risus gittis, non consequat lacus interdumoin.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo3.jpg" alt="">
+						<div class="text1">Company Name</div>Quisque viverra nulla nunc, eu ultrices wertlibero ultricies egetasellus um.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo4.jpg" alt="">
+						<div class="text1">Company Name</div>Courrewerwe abitur vel lorem sit amet ulla ullamcorper fermentumn vitae.
+						<br>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_3">
+						<img src="images/logo5.jpg" alt="">
+						<div class="text1">Company Name</div>Oiliquam nibh ante, egestas id dictum  wrecommodo luctus liberoaesente.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo6.jpg" alt="">
+						<div class="text1">Company Name</div>Gusce adipiscing quam id risus gittis, non consequat lacus interdumoiju.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo7.jpg" alt="">
+						<div class="text1">Company Name</div>Niuisque viverra nulla nunc, eu ultrices wertlibero ultricies egetasellus ol.
+						<br>
+					</div>
+					<div class="grid_3">
+						<img src="images/logo8.jpg" alt="">
+						<div class="text1">Company Name</div>Fouerourrewerwe abitur vel lorem sit amet ulla ullamcorper fermentum.
+						<br>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div id="page5" class="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="slogan">
+						<h3>Get in Touch</h3>
+						<div class="text1">
+							Feel free to reach us, we will be happy to help.
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="map">
+					<div class="grid_3">
+						<div class="text1">Address</div>
+						<address>
+							<dl>
+								<dt>Vaccinate<br>
+								New Delhi,<br>
+								India.
+								</dt>
+								<!--
+								<dd><span>Telephone:</span>- --- --- ----</dd>
+								<dd><span>FAX:</span>- --- --- ----</dd></br>
+								
+								<dd>E-mail: <a href="anshul@osahub.com" class="link-1">anshul@osahub.com</a></dd>
+								<dd>Website: <a href="http://osahub.com" target="_blank" class="link-1">www.osahub.com</a></dd>
+								-->
+							</dl>
+						</address>
+					</div>
+					<div class="grid_3">
+						<div class="text1">&nbsp;</div>
+						<figure class="">
+							<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=new+delhi&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=40.188298,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=New+Delhi,+West+Delhi,+Delhi,+India&amp;ll=28.635308,77.22496&amp;spn=0.349,0.676346&amp;t=m&amp;z=11&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=new+delhi&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=40.188298,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=New+Delhi,+West+Delhi,+Delhi,+India&amp;ll=28.635308,77.22496&amp;spn=0.349,0.676346&amp;t=m&amp;z=11" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+						</figure>
+					</div>
+					<div class="grid_5 prefix_1">
+						<div class="text1">Ask a Question</div>
+						<form id="form">
+						<div class="success_wrapper">
+						<div class="success">Contact form submitted!<br>
+						<strong>We will be in touch soon.</strong> </div></div>
+						<fieldset>
+						<label class="name">
+						<input type="text" value="Name:">
+						<br class="clear">
+						<span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+						<label class="email">
+						<input type="text" value="E-mail:">
+						<br class="clear">
+						<span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+						<label class="message">
+						<textarea>Message:</textarea>
+						<br class="clear">
+						<span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> </label>
+						<div class="clear"></div>
+						<div class="btns"><a data-type="submit" class="link1">Send</a>
+						<div class="clear"></div>
+						</div></fieldset></form>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="copy">
+						<a onClick="goToByScroll('page1'); return false;" href="#"><img src="images/footer_logo.png" alt=""></a> is a demo application for Google Cloud Developer Challenge 2013<br> <br>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</footer>
+		
+		<!-- sharing options -->
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_floating_style addthis_counter_style" style="left:0px;top:70px;">
+<a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+<a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+<a class="addthis_button_tweet" tw:count="vertical"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-528e474c0268a32e"></script>
+<!-- AddThis Button END -->
+
+	</body>
+</html>
+

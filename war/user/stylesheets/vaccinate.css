@@ -1,0 +1,16 @@
+body{
+	font-family: 'Droid Sans Mono', sans-serif;
+	}
+
+#nav-tab{
+	margin-top:25px;
+	}
+#slider {
+	height:400px !important;
+	width:800px !important;
+	
+}
+
+img{
+	align:center;
+	}
