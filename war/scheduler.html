@@ -329,6 +329,38 @@ HPV</strong> </td>
       
       //$('#datepicker').click(function(){
     	  
+    	  // implementation of disabled form fields
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear()-10, nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var now1 = new Date(nowTemp.getFullYear(), nowTemp.getMonth()+1, nowTemp.getDate(), 0, 0, 0, 0);
+ 
+    var checkin = $('#dob').fdatepicker({
+        onRender: function (date) {
+        	if(date.valueOf()   <  now.valueOf())
+        		return 'disabled';
+        	else if(date.valueOf() > now1.valueOf() )
+        		return 'disabled';
+        	else 
+        		return '';
+        }
+    }).on('changeDate', function (ev) {
+        if (ev.date.valueOf() > checkout.date.valueOf()) {
+            var newDate = new Date(ev.date)
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.setValue(newDate);
+        }
+        checkin.hide();
+        //$('#datepicker')[0].focus();
+    }).data('datepicker');
+    /* var checkout = $('#dpd2').fdatepicker({
+        onRender: function (date) {
+            return date.valueOf() &lt;= checkin.date.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function (ev) {
+        checkout.hide();
+    }).data('datepicker'); */
+    	  
+    	  
     	 $('#dob').fdatepicker({
     		 format:'mm-dd-yyyy'
     	 }); 
