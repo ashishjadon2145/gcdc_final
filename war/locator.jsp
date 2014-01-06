@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation5/foundation.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
     
     <style>
     	#map_canvas{
@@ -16,7 +16,7 @@
     		height:425px;
     	}
     </style>
-    <script src="js/foundation5/modernizr.js"></script>
+    <script src="js/modernizr.js"></script>
 	<script>
 		function CaptchaNumber(evt){
 
@@ -344,9 +344,9 @@ function navigate(destination){
    
     
         
-    <script src="js/foundation5/jquery.js"></script>
-    <script src="js/foundation5/foundation.min.js"></script>
-    <script src="js/foundation5/foundation.topbar.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/foundation.topbar.js"></script>
     <!-- <script src="js/foundation.orbit.js"></script> -->
     <!-- <script src="js/foundation/foundation.abide.js"></script>-->
     <script>
