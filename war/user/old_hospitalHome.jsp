@@ -64,7 +64,7 @@
 	if(session.getAttribute("hospitalEmailId")!=null)
 		userId = session.getAttribute("hospitalEmailId").toString();
 	else
-		response.sendRedirect("/error3.html");
+		response.sendRedirect("/index.jsp?status=3");
 	
 	try{
 	  	userService = UserServiceFactory.getUserService();

@@ -19,8 +19,13 @@
     <title>Vaccinate | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/modernizr.js"></script>
+
+    
+  
   </head>
   <body>
+  
+
   <div class="fixed">
   <nav class="top-bar" data-topbar>
   <ul class="title-area">
@@ -80,9 +85,9 @@
 		            <!-- Nested Dropdown -->
 	            	<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
 	              		<li><label></label></li>
-	              		<li><a href="consult.html">24X7 Assistance by VacciBot</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Discuss with other parents</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Ask VacciExpert your queries everyday</a></li>
+	              		<li><a href="#" data-reveal-id="nameModal">24X7 Assistance by VacciBot</a></li>
+	              		<%-- <li><a href="<%=parentLoginUrl%>">Discuss with other parents</a></li>
+	              		<li><a href="<%=parentLoginUrl%>">Ask VacciExpert your queries everyday</a></li> --%>
 	            	</ul>
 	          	</li>
 	          	<!-- Consultation tab end-->
@@ -348,15 +353,61 @@
 
 
    
+<!--  Modals -->    
+    <div id="nameModal" class="reveal-modal" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+    	<h3> Please Enter your name</h3>
+    	<input type="text" name="userName" placeholder="Your name here">
+    	<a href="#" data-reveal-id="secondModal" class="button tiny">Submit</a>
+    	<a class="close-reveal-modal">&#215;</a>    
+    </div>
     
-        
-    <script src="js/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
+    <div id="secondModal" class="reveal-modal" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+    	<h3>WRITE your code here Anshul</h3>
+    </div>
+    
+    <div id="errModal" class="reveal-modal small" data-reveal>
+    	<div id="errTxt" ></div>
+ 	   <a class="close-reveal-modal">&#215;</a>    
+    </div>
+
+<!-- Modals -->
+        <script src="js/jquery.js"></script>
+          <script src="js/foundation.min.js"></script>    
     <script src="js/foundation.topbar.js"></script>
     <script src="js/foundation.orbit.js"></script>
     <script src="js/foundation.abide.js"></script>
+    <script src="js/foundation.reveal.js"></script>
     <script>
       $(document).foundation();
+     
+      $(document).ready(function(){
+      function getQueryVariable(variable)
+      {
+             var query = window.location.search.substring(1);
+             var vars = query.split("&");
+             for (var i=0;i<vars.length;i++) {
+                     var pair = vars[i].split("=");
+                     if(pair[0] == variable){
+                    	 return pair[1];
+                     }
+             }
+             return(false);
+      }
+      
+      var status = getQueryVariable("status");
+      
+      var errors= [ 'you are not authorized to access this section.</br></br>Do Not try this again. </br></br><b>It might be dangerous!</b>',
+                    'you are not authorized to access this section.</br></br>Please choose correct role and try again!',
+                    'you are not logged in.</br></br>Please try logging in again!',
+                    'you are not logged in! try again!'
+                    ];
+      
+      if(status){
+    	  $('#errTxt').html(errors[status-1]);
+    	  $('#errModal').foundation('reveal','open');
+      }
+      
+      });
     </script>
   </body>
 </html>

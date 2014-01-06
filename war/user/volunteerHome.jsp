@@ -81,7 +81,7 @@ public String getBirthDate(String tikkaDate){
 	if(session.getAttribute("volunteerId")!=null)
 		userId = session.getAttribute("volunteerId").toString();
 	else
-		response.sendRedirect("/error3.html");
+		response.sendRedirect("/index.jsp?status=3");
 	
 	try{
 	  	userService = UserServiceFactory.getUserService();

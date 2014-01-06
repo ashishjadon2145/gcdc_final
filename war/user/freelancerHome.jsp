@@ -64,7 +64,7 @@
 	if(session.getAttribute("freelancerId")!=null)
 		userId = session.getAttribute("freelancerId").toString();
 	else
-		response.sendRedirect("/error3.html");
+		response.sendRedirect("/index.jsp?status=3");
 	
 	try{
 	  	userService = UserServiceFactory.getUserService();

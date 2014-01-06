@@ -58,16 +58,16 @@ public class LoginServlet extends HttpServlet {
 			
 	        if (request.getUserPrincipal() == null){
 	    		session.setAttribute("userId", null);
-	        	resp.sendRedirect("/error4.html");
+	        	resp.sendRedirect("/index.jsp?status=4");
 	        }
 	        else{
 	        	int registraionStatus = isUserRegistered(loggedInUser,this.role);
 	        	
 				
 				if(registraionStatus == FRESH_EMAIL_ROLE_IS_ADMIN){
-					resp.sendRedirect("/error1.html");
+					resp.sendRedirect("/index.jsp?status=1");
 				}else if(registraionStatus == REGISTERED_EMAIL_ROLE_MISMATCH){
-					resp.sendRedirect("/error2.html");
+					resp.sendRedirect("//index.jsp?status=2");
 				}else{
 					if(registraionStatus == FRESH_EMAIL_ROLE_NOT_ADMIN){
 						
