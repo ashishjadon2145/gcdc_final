@@ -41,7 +41,7 @@ public class SchedulerPdfCreator extends HttpServlet {
 		String cName = req.getParameter("cName");
 //		System.out.println(req.getParameter("dob"));
 		dob = dtf.parseLocalDate(req.getParameter("dob"));
-		System.out.println(dob.toString());
+		//System.out.println(dob.toString());
 		String[] dates = getDates(dob);
 		
 		res.setContentType("application/pdf");
