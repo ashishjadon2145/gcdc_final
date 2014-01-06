@@ -65,7 +65,7 @@
 			</h2>
 		</div>
 
-		<i class=" icon icon-chevron-left"></i> icon-chevron-left
+		
 		
 
 		<!--  scheduler locator looks -->
@@ -219,7 +219,7 @@ HPV</strong> </td>
 				<input type="text" placeholder="Child's Name" id="childName" />
 			</div>
 			<div class="large-2 columns ">
-				<input type="text" placeholder="Date of Birth" id="datepicker" />
+				<input type="text" placeholder="Date of Birth" id="datepicker" readonly data-date-format="mm-dd-yyyy"/>
 			</div>
 			<div class="large-2 columns">
 				<a href="#" class="button radius tiny" id="generate">View
@@ -344,12 +344,12 @@ HPV</strong> </td>
         		return '';
         }
     }).on('changeDate', function (ev) {
-        if (ev.date.valueOf() > checkout.date.valueOf()) {
+        /* if (ev.date.valueOf() > checkout.date.valueOf()) {
             var newDate = new Date(ev.date)
             newDate.setDate(newDate.getDate() + 1);
             checkout.setValue(newDate);
         }
-        checkin.hide();
+        checkin.hide(); */
         //$('#datepicker')[0].focus();
     }).data('datepicker');
     /* var checkout = $('#dpd2').fdatepicker({
@@ -360,10 +360,8 @@ HPV</strong> </td>
         checkout.hide();
     }).data('datepicker'); */
     	  
-    	  
-    	 $('#dob').fdatepicker({
-    		 format:'mm-dd-yyyy'
-    	 }); 
+    	
+    	 $('#dob').fdatepicker();  
       //});
       //code for the generate function click
       $('#generate').click(function(){
