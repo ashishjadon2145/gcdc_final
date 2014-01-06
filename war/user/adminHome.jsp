@@ -70,8 +70,8 @@ public String getBirthDate(String tikkaDate){
 
 	BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	BlobKey blobKey;
-	if(session.getAttribute("userId")!=null)
-		userId = session.getAttribute("userId").toString();
+	if(session.getAttribute("adminId")!=null)
+		userId = session.getAttribute("adminId").toString();
 	else
 		response.sendRedirect("/index.jsp?status=3");
 	

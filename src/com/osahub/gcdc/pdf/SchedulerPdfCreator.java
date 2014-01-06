@@ -32,7 +32,7 @@ public class SchedulerPdfCreator extends HttpServlet {
 	
 	private	ByteArrayOutputStream bAOS = new ByteArrayOutputStream();
 	LocalDate dob = new LocalDate();
-	final DateTimeFormatter dtf = DateTimeFormat.forPattern("mm-dd-yyyy");
+	final DateTimeFormatter dtf = DateTimeFormat.forPattern("dd-MM-yyyy");
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException{
@@ -41,7 +41,7 @@ public class SchedulerPdfCreator extends HttpServlet {
 		String cName = req.getParameter("cName");
 //		System.out.println(req.getParameter("dob"));
 		dob = dtf.parseLocalDate(req.getParameter("dob"));
-		
+		System.out.println(dob.toString());
 		String[] dates = getDates(dob);
 		
 		res.setContentType("application/pdf");
@@ -105,7 +105,7 @@ public class SchedulerPdfCreator extends HttpServlet {
           
           String[] comments = new String[]{
         		  "",
-        		 "<b>Polio : </b>Use IPV. But may be replaced with OPV if former is unaffordable/unavailable \n"+
+        		 "Polio : Use IPV. But may be replaced with OPV if former is unaffordable/unavailable \n"+
         		  "Rotavirus : 2 doses of RV-1 and 3 doses of RV-5",
         		  "","Rotavirus : Only 2 doses of RV1 are recommended at present.",
         		  "Hepatitis-B : The final (third or fourth) dose in the HepB vaccine series should be administered no earlier than age 24 weeks and at least 16 weeks after the first dose.",
@@ -186,11 +186,11 @@ public class SchedulerPdfCreator extends HttpServlet {
 		for(int j = 0 ; j <days.length ; j++){
 			
 			if(j<4){
-				dates[j] = dob.plusDays(days[j]).toString();
+				dates[j] = dob.plusDays(days[j]).toString(dtf);
 				continue;
 			}
 			else
-				dates[j] = dob.plusMonths(days[j]).toString();
+				dates[j] = dob.plusMonths(days[j]).toString(dtf);
 			
 			//System.out.println(dates[j]);
 		}
