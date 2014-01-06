@@ -16,7 +16,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Vaccinate | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/modernizr.js"></script>
   </head>
@@ -25,8 +25,9 @@
   <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><a href="index.html">Vaccinate</a></h1>
+      <h1><a href="/index.jsp">Vaccinate</a></h1>
     </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     
   </ul>
 
@@ -111,8 +112,8 @@
     </ul>    <!-- Left Nav Section -->
     
   </section>
-</nav>
-</div>
+  </nav></div>
+
 
 
 <!-- Slider -->
