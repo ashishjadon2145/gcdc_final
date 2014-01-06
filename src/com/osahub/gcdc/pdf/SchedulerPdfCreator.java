@@ -45,7 +45,7 @@ public class SchedulerPdfCreator extends HttpServlet {
 		String[] dates = getDates(dob);
 		
 		res.setContentType("application/pdf");
-		 res.addHeader("Content-Disposition", "attachment; filename=\"" +req.getParameter("cName")+".pdf\"");		
+		 res.addHeader("Content-Disposition", "attachment; filename=\"Vaccinate_" +req.getParameter("cName")+".pdf\"");		
 
 //		 System.out.println(req.getParameter("cName"));
 		 
