@@ -143,7 +143,7 @@ public class UpdateProfile extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException { 
 		resp.sendRedirect("/index.html");
 	}
-	/*	
+		
 	public static ArrayList<Child> getChildListFromParentEmail(String parentEmail){
 		ArrayList<Child> childList = new ArrayList<>();
 		QueryResultIterator<Child> childIterator = OfyService.ofy().load().type(Child.class).filter("parentMailId",parentEmail).iterator();
@@ -155,7 +155,7 @@ public class UpdateProfile extends HttpServlet {
 		return childList;
 	}
 	
-	
+	/*
 	
 	public boolean childExists(String mobile, String cName){	
 		String hash = Hasher.CreateHash(mobile+cName);
