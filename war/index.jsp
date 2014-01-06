@@ -19,6 +19,21 @@
     <title>Vaccinate | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/modernizr.js"></script>
+    <script src="js/vaccibot.js"></script>
+-		<script src="js/sessvar.js"></script>
+-		<script type="text/javascript" >
+-			function setName(){
+-				//alert("1");
+-				var data = document.getElementById("userName").value;
+-				if(data == null || data =="")
+-				{	
+-					//show error on the name field and donot show the next modal
+-					//write the error here.
+-					return false;
+-				}
+-				sessvars.username = data;
+-			}
+-		</script>
 
     
   
@@ -354,16 +369,28 @@
 
    
 <!--  Modals -->    
-    <div id="nameModal" class="reveal-modal" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+    <div id="nameModal" class="reveal-modal small" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
     	<h3> Please Enter your name</h3>
     	<input type="text" name="userName" placeholder="Your name here">
     	<a href="#" data-reveal-id="secondModal" class="button tiny">Submit</a>
     	<a class="close-reveal-modal">&#215;</a>    
     </div>
-    
-    <div id="secondModal" class="reveal-modal" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
-    	<h3>WRITE your code here Anshul</h3>
-    </div>
+      <div id="secondModal" class="reveal-modal small" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+-    	
+-    	
+-    	<div>
+-	    	<div id="list"  class="grid_4"  style="overflow: auto;height:200px;background-color: lightblue">
+-				<div id="vaccibotBox"   style="color: black; background-color: lightblue">	
+-					<b>Vaccibot</b>: Hello. Please ask your query </br> 
+-				</div>
+-			</div>
+-		
+-			Say something here:
+-			<textarea  class="grid_4" style="color: grey; background-color: lightblue" name="comments" id="comments"></textarea>
+-			<a  class="link1" onclick="addText();">Submit</a>
+-			<a class="close-reveal-modal">&#215;</a>    
+-    	</div>
+</div>
     
     <div id="errModal" class="reveal-modal small" data-reveal>
     	<div id="errTxt" ></div>
