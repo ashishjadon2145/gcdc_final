@@ -52,26 +52,28 @@
 	AppointmentDao currentAppointment;
 	
 	
+	
 
 %>
 <%	
 	session = request.getSession();
 	//for vacciMonitor
-		
-
+	
+  
 	BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	BlobKey blobKey;
-	if(session.getAttribute("hospitalEmailId")!=null)
+	if(session.getAttribute("hospitalEmailId") != null)
 		userId = session.getAttribute("hospitalEmailId").toString();
 	else
 		response.sendRedirect("/index.jsp?status=3");
 	
 	try{
 	  	userService = UserServiceFactory.getUserService();
-		p1 = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", userId).first().get();
+		p1 = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", userId).first().now();
 		if(p1 == null){
 			response.getWriter().println("log out your currently logged in google account and try again.");
 		}else{
+
 			if(p1.image1 != null){
 				noProfilePicture =false;
 	        	ImagesService imagesService = ImagesServiceFactory.getImagesService();

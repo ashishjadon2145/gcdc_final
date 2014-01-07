@@ -67,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 				if(registraionStatus == FRESH_EMAIL_ROLE_IS_ADMIN){
 					resp.sendRedirect("/index.jsp?status=1");
 				}else if(registraionStatus == REGISTERED_EMAIL_ROLE_MISMATCH){
-					resp.sendRedirect("//index.jsp?status=2");
+					resp.sendRedirect("/index.jsp?status=2");
 				}else{
 					if(registraionStatus == FRESH_EMAIL_ROLE_NOT_ADMIN){
 						
@@ -140,20 +140,20 @@ public class LoginServlet extends HttpServlet {
 						//there is possibility of duplicacy where a vaccination center is already added by admin manuaaly and that center registers online 
 						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().get();
 						vaccinationCenter.lastLogin = "Your last login : "+new Date();
-						ofy().save().entities(vaccinationCenter);
+						ofy().save().entities(vaccinationCenter).now();
 						ofy().clear();
 						break;
 					case FREELANCER:
 						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().get();
 						vaccinationCenter.lastLogin = "Your last login : "+new Date();
-						ofy().save().entities(vaccinationCenter);
+						ofy().save().entities(vaccinationCenter).now();
 						ofy().clear();
 						break;
 					default:
 						//i.e. Parent, Helpline, Admin, volunteer
 						person = OfyService.ofy().load().type(Person.class).id(email).get();
 						person.lastLogin = "Your last login : "+new Date();
-						ofy().save().entities(person);
+						ofy().save().entities(person).now();
 						ofy().clear();
 						break;
 				}
@@ -234,19 +234,19 @@ public class LoginServlet extends HttpServlet {
 		case VACCINATION_CENTER:
 			VaccinationCenter vaccinationCenter = null;
 			vaccinationCenter = new VaccinationCenter(email);
-			ofy().save().entities(vaccinationCenter);
+			ofy().save().entities(vaccinationCenter).now();
 			ofy().clear();
 			break;
 		case FREELANCER:
 			VaccinationCenter freelancer = null;
 			freelancer = new VaccinationCenter(email);
-			ofy().save().entities(freelancer);
+			ofy().save().entities(freelancer).now();
 			ofy().clear();
 			break;
 		default:
 			Person parent = null;
 			parent = new Person(email, new Date(), 1 , "online@vaccinate.com", role, getUsernameFromEmail(email));
-			ofy().save().entities(parent);
+			ofy().save().entities(parent).now();
 			ofy().clear();
 			break;
 		}
