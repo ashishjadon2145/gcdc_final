@@ -1,6 +1,21 @@
+<!doctype html>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="com.osahub.hcs.vaccinate.dao.locator.VaccinationCenter"%>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%!
+	String parentLoginUrl ;
+	String hospitalLoginUrl ;
+	String freelancerLoginUrl ;
+	String volunteerLoginUrl ;
+%>
+<%
+	parentLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=1");
+	hospitalLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=2");
+	freelancerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=5");
+	volunteerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=6");
+%>
+
 <html lang="en">
 <head>
 
@@ -207,6 +222,22 @@ else
 alert("your browser can't find your location.");
 }
 </script>
+ <script src="js/vaccibot.js"></script>
+		<script src="js/sessvar.js"></script>
+		<script type="text/javascript" >
+			function setName(){
+				//alert("1");
+				var data = document.getElementById("userName").value;
+				if(data == null || data =="")
+				{	
+					//show error on the name field and donot show the next modal
+					//write the error here.
+					return false;
+				}
+				sessvars.username = data;
+			}
+		</script>
+
 
 </head>
 <body onload="initialize()">
@@ -214,36 +245,78 @@ alert("your browser can't find your location.");
 
 
 	<div class="fixed">
-		<nav class="top-bar" data-topbar>
-			<ul class="title-area">
-				<li class="name">
-					<h1>
-						<a href="index.jsp">Vaccinate</a>
-					</h1>
-				</li>
+  <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/index.jsp">Vaccinate</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    
+  </ul>
 
-			</ul>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      	<li class="active"><a href="index.jsp#aboutus">Home</a></li>
+      	<li><a href="index.jsp#getInvolved">Get Involved</a></li>
+      
+		<li class="has-dropdown not-click"><a href="#">What all you can do</a>
+        <ul class="dropdown">
+			<!-- Parent tab start-->
+			<li><label>Parent</label></li>
+          		<!-- Scheduler tab start-->
+	          	<li  class=""><a href="scheduler.jsp">Scheduler</a>
 
-			<section class="top-bar-section">
-				<!-- Right Nav Section -->
-				<ul class="right">
-					<li class="active"><a href="#">Hello</a></li>
-					<li><a href="#aboutus">Who are we?</a></li>
-
-					<li class="has-dropdown"><a href="#">Vaccinate</a>
-						<ul class="dropdown">
-							<li><a href="scheduler.jsp">Scheduler</a></li>
-							<li class="active"><a href="#">Locator</a></li>
-							<li><a href="consult.html">Consultation</a></li>
-
-						</ul></li>
-				</ul>
-
-				<!-- Left Nav Section -->
-
-			</section>
-		</nav>
-	</div>
+	          	</li>
+          		<!-- Scheduler tab end-->
+	          	<!-- Locator tab start-->
+	          	<li  class=""><a href="locator.jsp">Locator</a>
+		            
+	          	</li>
+	          	<!-- Locator tab end-->
+	          	<!-- Reminders tab start-->
+	          	<li  class=""><a href="<%=parentLoginUrl%>">Reminders</a>
+		            
+	            	
+	          	</li>
+	          	<!-- Reminders tab end-->
+	          	<!-- Consultation tab start-->
+	          	<li  class="has-dropdown not-click"><a href="">Consultation</a>
+		            <!-- Nested Dropdown -->
+	            	<ul class="dropdown">
+	              		<li><a href="#" data-reveal-id="nameModal">24X7 Assistance by VacciBot</a></li>
+	              		<%-- <li><a href="<%=parentLoginUrl%>">Discuss with other parents</a></li>
+	              		<li><a href="<%=parentLoginUrl%>">Ask VacciExpert your queries everyday</a></li> --%>
+	            	</ul>
+	          	</li>
+	          	<!-- Consultation tab end-->
+			<!-- Parent tab end-->
+			<!-- Hospital tab start-->
+			
+	        <!-- 
+          	<li class="divider"></li>
+          	<li><label>Hospitals - Doctor</label></li>
+          		<li><a href="scheduler.jsp">Vaccinate at Home</a></li>
+			-->
+			<!-- Hospital tab end-->
+        </ul>
+      </li>
+      
+     
+      
+      <li class="has-dropdown">
+      	<a href="#">Login As</a>
+      	<ul class="dropdown">
+      		<li> <a href="<%=parentLoginUrl%>">Parent</a></li>
+      		<li> <a href="<%=hospitalLoginUrl%>">Hospital</a></li>
+      		<li> <a href="<%=volunteerLoginUrl%>">Volunteer</a></li>    		
+      	
+      	</ul>
+      </li>
+    </ul>    <!-- Left Nav Section -->
+    
+  </section>
+  </nav></div>
 
 
 	<div class="row">
@@ -434,6 +507,30 @@ out.print("</div>");
 		<div id="navMap" class="medium" style="height: 420px; width: 100%;"></div>
 		<a class="close-reveal-modal">&#215;</a>
 	</div>
+	
+	<!--  Modals -->    
+    <div id="nameModal" class="reveal-modal small" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+    	<h3> Please Enter your name</h3>
+    	<input type="text" name="userName" placeholder="Your name here">
+    	<a href="#" data-reveal-id="secondModal" class="button tiny">Submit</a>
+    	<a class="close-reveal-modal">&#215;</a>    
+    </div>
+      <div id="secondModal" class="reveal-modal small" data-reveal-style="display:none;opacity:1;visibility:hidden" data-reveal>
+    	
+    	
+    	<div>
+	    	<div id="list"  class="grid_4"  style="overflow: auto;height:200px;background-color: lightblue">
+				<div id="vaccibotBox"   style="color: black; background-color: lightblue">	
+				<b>Vaccibot</b>: Hello. Please ask your query </br> 
+				</div>
+			</div>
+		
+			Say something here:
+			<textarea  class="grid_4" style="color: grey; background-color: lightblue" name="comments" id="comments"></textarea>
+			<a  class="link1" onclick="addText();">Submit</a>
+			<a class="close-reveal-modal">&#215;</a>    
+    	</div>
+</div>
 
 
 
@@ -443,14 +540,17 @@ out.print("</div>");
 	<script src="js/foundation.reveal.js"></script>
 	<script>
       $(document).foundation();
-      $(document).on('opened', '[data-reveal]', function () {
+      
+      
+      
+      $('#mapModal').bind('opened', function(){
+ 	  		var currentCenter = dirMap.getCenter();  // Get current center before resizingM
+ 	    	  google.maps.event.trigger(dirMap, "resize");
+ 	    	  dirMap.setCenter(currentCenter); // Re-set previous center
+ 	    	  dirMap.setZoom(15);    	  
+      });
     	  
-    	  var currentCenter = dirMap.getCenter();  // Get current center before resizingM
-    	  google.maps.event.trigger(dirMap, "resize");
-    	  dirMap.setCenter(currentCenter); // Re-set previous center
-    	  dirMap.setZoom(15);
-    	  
-    	});
+    
     </script>
 </body>
 </html>

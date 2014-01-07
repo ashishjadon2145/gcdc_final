@@ -58,14 +58,14 @@
     <!-- Right Nav Section -->
     <ul class="right">
       	<li class="active"><a href="index.jsp#aboutus">Home</a></li>
-      	<li><a href="#getInvolved">Get Involved</a></li>
+      	<li><a href="index.jsp#getInvolved">Get Involved</a></li>
       
 		<li class="has-dropdown not-click"><a href="#">What all you can do</a>
         <ul class="dropdown">
 			<!-- Parent tab start-->
 			<li><label>Parent</label></li>
           		<!-- Scheduler tab start-->
-	          	<li  class=""><a href="scheduler.html">Scheduler</a>
+	          	<li  class=""><a href="scheduler.jsp">Scheduler</a>
 
 	          	</li>
           		<!-- Scheduler tab end-->
@@ -96,7 +96,7 @@
 	        <!-- 
           	<li class="divider"></li>
           	<li><label>Hospitals - Doctor</label></li>
-          		<li><a href="scheduler.html">Vaccinate at Home</a></li>
+          		<li><a href="scheduler.jsp">Vaccinate at Home</a></li>
 			-->
 			<!-- Hospital tab end-->
         </ul>
@@ -166,7 +166,7 @@
 				
 		<div class="large-4 columns">
 			<h3>
-			<a href="scheduler.html">
+			<a href="scheduler.jsp">
 				Get Vaccination<strong> Schedule</strong>
 			</a>
 			</h3>
@@ -176,7 +176,7 @@
 				Download the schedule and add reminders to your google calendar. 
 			
 			</p>
-			<a href="scheduler.html" class="button small">Scheduler  &#8594</a>
+			<a href="scheduler.jsp" class="button small">Scheduler  &#8594</a>
 		</div>
 		
 		<div class="large-4 columns">
