@@ -333,7 +333,7 @@ if(list!=null){
 
         out.print("<li id=\"numResults\" class=\"right\"> <strong>"+list.size()+"</strong> Results found</li>");
         out.print("<span class=\"clearfix\" ></span>");
-        out.print("<div id=\"side_bar\">");
+        out.print("<div id=\"side_bar\" style=\"overflow-y: scroll;\">");
          
 
 Iterator<Object[]> i = list.iterator();
@@ -381,7 +381,7 @@ out.print("</div>");
       <hr />
       <div class="row">
         <div class="large-6 columns">
-          <p>Â© Copyright no one at all. Go to town.</p>
+          <p>© Copyright no one at all. Go to town.</p>
         </div>
         <div class="large-6 columns">
           <ul class="inline-list right">
