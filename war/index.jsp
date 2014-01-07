@@ -61,48 +61,29 @@
       	<li><a href="#getInvolved">Get Involved</a></li>
       
 		<li class="has-dropdown not-click"><a href="#">What all you can do</a>
-        <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+        <ul class="dropdown">
 			<!-- Parent tab start-->
 			<li><label>Parent</label></li>
           		<!-- Scheduler tab start-->
-	          	<li  class="has-dropdown not-click"><a href="scheduler.html">Scheduler</a>
-	            	<!-- Nested Dropdown -->
-	            	<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-	              		<li><label></label></li>
-	              		<li><a href="scheduler.html">Download Immunization Schedule for your child</a></li>
-	              		<li><a href="scheduler.html">Add Immunization Reminders to Calender</a></li>
-	              		<li><a href="scheduler.html">Save Immunization Schedule in your Drive</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Monitor Immunization progress for your child</a></li>
-	            	</ul>
+	          	<li  class=""><a href="scheduler.html">Scheduler</a>
+
 	          	</li>
           		<!-- Scheduler tab end-->
 	          	<!-- Locator tab start-->
-	          	<li  class="has-dropdown not-click"><a href="locator.jsp">Locator</a>
-		            <!-- Nested Dropdown -->
-	            	<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-	              		<li><label></label></li>
-	              		<li><a href="locator.jsp">Search nearest Vaccination Center</a></li>
-	              		<li><a href="locator.jsp">Navigation directions to Vaccination Center</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Book Appointment for Vaccination at Home</a></li>
-	            	</ul>
+	          	<li  class=""><a href="locator.jsp">Locator</a>
+		            
 	          	</li>
 	          	<!-- Locator tab end-->
 	          	<!-- Reminders tab start-->
-	          	<li  class="has-dropdown not-click"><a href="<%=parentLoginUrl%>">Reminders</a>
-		            <!-- Nested Dropdown -->
-	            	<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-	              		<li><label></label></li>
-	              		<li><a href="<%=parentLoginUrl%>">Get Vaccination Reminders via SMS</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Get Vaccination Reminders via Emails</a></li>
-	              		<li><a href="<%=parentLoginUrl%>">Get Vaccination Reminders via Personal Call</a></li>
-	            	</ul>
+	          	<li  class=""><a href="<%=parentLoginUrl%>">Reminders</a>
+		            
+	            	
 	          	</li>
 	          	<!-- Reminders tab end-->
 	          	<!-- Consultation tab start-->
 	          	<li  class="has-dropdown not-click"><a href="">Consultation</a>
 		            <!-- Nested Dropdown -->
-	            	<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
-	              		<li><label></label></li>
+	            	<ul class="dropdown">
 	              		<li><a href="#" data-reveal-id="nameModal">24X7 Assistance by VacciBot</a></li>
 	              		<%-- <li><a href="<%=parentLoginUrl%>">Discuss with other parents</a></li>
 	              		<li><a href="<%=parentLoginUrl%>">Ask VacciExpert your queries everyday</a></li> --%>
