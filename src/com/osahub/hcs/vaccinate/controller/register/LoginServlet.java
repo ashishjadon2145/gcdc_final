@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 						
 						//send welcome mail
 						sendWelcomeMail(loggedInUser);
-						
+						System.out.println("Sent the mail");
 					}
 
 					//redirect to the desired page
@@ -84,35 +84,45 @@ public class LoginServlet extends HttpServlet {
 				}
 					
 			}
-		}catch(Exception err){}
+		}catch(Exception err){
+			err.printStackTrace();
+			
+		}
 	}
 	
 	private void forwardToPage(HttpServletResponse resp, String loggedInUser) throws IOException{
+		System.out.println("forwarding now");
 		switch(this.role){
 			case 1:
+				session.setAttribute("userId", loggedInUser);
 				resp.sendRedirect("/parentHome");
 				//resp.sendRedirect("/adminPanel");//hardcoded to make admin screen
-				session.setAttribute("userId", loggedInUser);
+				
 				break;
 			case 2:
-				resp.sendRedirect("/hospitalHome");
+				System.out.println("in hospital");
 				session.setAttribute("hospitalEmailId", loggedInUser);//since hospital can  be added by admin, for them emailid!=id, id==hospital name. so using hospitalEmailId not hospitalId
+				resp.sendRedirect("/hospitalHome");
 				break;
 			case 3:
-				resp.sendRedirect("/helplineHome");
 				session.setAttribute("helplineID", loggedInUser);//change userId to helplineID and test 
+
+				resp.sendRedirect("/helplineHome");
 				break;
 			case 4:
-				resp.sendRedirect("/adminPanel");
 				session.setAttribute("adminId", loggedInUser);//changed userId to adminID but not tested 
+	
+				resp.sendRedirect("/adminPanel");
 				break;
 			case 5:
-				resp.sendRedirect("/freelancerHome");
 				session.setAttribute("freelancerId", loggedInUser);//since freelancer can not be added by admin, for them emailid==id, so using freelancerId not freelancerEmailId
+
+				resp.sendRedirect("/freelancerHome");
 				break;
 			case 6:
-				resp.sendRedirect("/volunteerHome");
 				session.setAttribute("volunteerId", loggedInUser);
+
+				resp.sendRedirect("/volunteerHome");
 				break;
 		}
 	}
@@ -122,7 +132,7 @@ public class LoginServlet extends HttpServlet {
 		VaccinationCenter vaccinationCenter = null;
 		Person person = null;
 		
-		accessControl = OfyService.ofy().load().type(AccessControl.class).id(email).get();
+		accessControl = OfyService.ofy().load().type(AccessControl.class).id(email).now();
 
 		//email id does not exist in  our DB
 		if(accessControl == null){
@@ -138,20 +148,20 @@ public class LoginServlet extends HttpServlet {
 				switch(role){
 					case VACCINATION_CENTER:
 						//there is possibility of duplicacy where a vaccination center is already added by admin manuaaly and that center registers online 
-						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().get();
+						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().now();
 						vaccinationCenter.lastLogin = "Your last login : "+new Date();
 						ofy().save().entities(vaccinationCenter).now();
 						ofy().clear();
 						break;
 					case FREELANCER:
-						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().get();
+						vaccinationCenter = OfyService.ofy().load().type(VaccinationCenter.class).filter("email", email).first().now();
 						vaccinationCenter.lastLogin = "Your last login : "+new Date();
 						ofy().save().entities(vaccinationCenter).now();
 						ofy().clear();
 						break;
 					default:
 						//i.e. Parent, Helpline, Admin, volunteer
-						person = OfyService.ofy().load().type(Person.class).id(email).get();
+						person = OfyService.ofy().load().type(Person.class).id(email).now();
 						person.lastLogin = "Your last login : "+new Date();
 						ofy().save().entities(person).now();
 						ofy().clear();
@@ -227,7 +237,7 @@ public class LoginServlet extends HttpServlet {
 	public void registeruser(String email, int role){
 		AccessControl accessControl = null;
 		accessControl = new AccessControl(email, role, "online@vaccinate.com");
-		ofy().save().entities(accessControl);
+		ofy().save().entities(accessControl).now();
 		ofy().clear();
 		
 		switch(role){

@@ -63,7 +63,11 @@
 	BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	BlobKey blobKey;
 	if(session.getAttribute("hospitalEmailId") != null)
-		userId = session.getAttribute("hospitalEmailId").toString();
+		{
+				userId = session.getAttribute("hospitalEmailId").toString();
+			
+
+		}
 	else
 		response.sendRedirect("/index.jsp?status=3");
 	
@@ -74,6 +78,7 @@
 			response.getWriter().println("log out your currently logged in google account and try again.");
 		}else{
 
+			System.out.println("found the user");
 			if(p1.image1 != null){
 				noProfilePicture =false;
 	        	ImagesService imagesService = ImagesServiceFactory.getImagesService();

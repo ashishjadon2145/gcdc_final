@@ -206,7 +206,7 @@
 				Never worry about the health of your child. 
 			
 			</p>
-			<a hre="<%=parentLoginUrl%>" class="button small">Sign in &#8594</a>
+			<a href="<%=parentLoginUrl%>" class="button small">Sign in &#8594</a>
 			
 		</div>
 	
