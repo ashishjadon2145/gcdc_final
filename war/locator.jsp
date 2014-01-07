@@ -1,30 +1,27 @@
-﻿<%@ page import="java.util.List" %>
-<%@ page import= "java.util.Iterator" %>
-<%@ page import= "com.osahub.hcs.vaccinate.dao.locator.VaccinationCenter" %>
-<!doctype html>
-<html  lang="en">
-  <head>
-  
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    
-    <style>
-    #map_canvas{
-    width:100%;
-    height:425px;
-    }
-    
-    li.even1{
-    	background-color:#fafafa;
-    	padding-top:4px;
-    	padding-bottom:4px;
-    }
-    
-    
-    </style>
-    <script src="js/modernizr.js"></script>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="com.osahub.hcs.vaccinate.dao.locator.VaccinationCenter"%>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Foundation | Welcome</title>
+<link rel="stylesheet" href="css/foundation.css" />
+
+<style>
+#map_canvas {
+	width: 100%;
+	height: 425px;
+}
+
+li.even1 {
+	background-color: #fafafa;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+</style>
+<script src="js/modernizr.js"></script>
 <script>
 function CaptchaNumber(evt){
 
@@ -45,12 +42,12 @@ document.getElementById('form4343').submit();
 return true;
 
 }
-</script>    
-  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-     
-    
-    <script>
+
+
+<script>
 
 var test = [];
 var gmarkers = [];
@@ -136,7 +133,7 @@ bounds.extend(point);
     })(marker, i));
     
     gmarkers.push(marker);
-    console.log(i);
+    
       if( (gmarkers.length-1)%2 == 0)
     side_bar_html += '<li class="odd1"><a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + test[i][0] + '<\/a><\/li>';
     else
@@ -210,124 +207,139 @@ else
 alert("your browser can't find your location.");
 }
 </script>
-    
-  </head>
-  <body  onload="initialize()">
-  
+
+</head>
+<body onload="initialize()">
 
 
-  <div class="fixed">
-  <nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="index.html">Vaccinate</a></h1>
-    </li>
-    
-  </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active"><a href="#">Hello</a></li>
-      <li><a href="#aboutus">Who are we?</a></li>
-      
-      <li class="has-dropdown">
-        <a href="#">Vaccinate</a>
-        <ul class="dropdown">
-          <li><a href="scheduler.jsp">Scheduler</a></li>
-          <li class="active"><a href="#">Locator</a></li>
-          <li><a href="consult.html">Consultation</a></li>
-          
-        </ul>
-      </li>
-    </ul>
+	<div class="fixed">
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					<h1>
+						<a href="index.html">Vaccinate</a>
+					</h1>
+				</li>
 
-    <!-- Left Nav Section -->
-    
-  </section>
-</nav>
-</div>
+			</ul>
+
+			<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				<ul class="right">
+					<li class="active"><a href="#">Hello</a></li>
+					<li><a href="#aboutus">Who are we?</a></li>
+
+					<li class="has-dropdown"><a href="#">Vaccinate</a>
+						<ul class="dropdown">
+							<li><a href="scheduler.jsp">Scheduler</a></li>
+							<li class="active"><a href="#">Locator</a></li>
+							<li><a href="consult.html">Consultation</a></li>
+
+						</ul></li>
+				</ul>
+
+				<!-- Left Nav Section -->
+
+			</section>
+		</nav>
+	</div>
 
 
-<div class="row">
-<div class="large-12 columns">
+	<div class="row">
+		<div class="large-12 columns">
 
-<h2> Find the nearest Vaccination center in your locality</h2>
+			<h2>Find the nearest Vaccination center in your locality</h2>
 
-</div>
+		</div>
 
-</div>
+	</div>
+	
+	<div class="row">
+	
+	<div class="large-4  columns">
+			<ul class="side-nav" style="margin-top:-15px;">
+				<h3>Search</h3>
+			
 
-  <div class="row">    
-    
-    <!-- Main Content Section -->
-    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="large-8 push-4 columns">
-      
-      <h3>Map<small> Get the directions</small> <a href="#" class="button right small">View All</a></h3>
-      
-      <div id="map_canvas"></div>
-                  
-    </div>
-    
-    <br />
-    <!-- Nav Sidebar -->
-    <!-- This is source ordered to be pulled to the left on larger screens -->
-    
-    <div class="large-4 pull-8 columns">
-        Enter your pincode here
-      <ul class="side-nav">
-      
-      <form id="form4343" action="fetchLocation" method="post" onsubmit="pinCheck();">
-        <li>
-        <input type="hidden" id="action" name="action" value="fetchLocationByPincode" />
-        <input type="text" maxlength="6" onkeypress='return CaptchaNumber(event)' name="fetchpin" id="fetchpin" placeholder="Pin code">
-        </li>
-<input class="button tiny" type="submit" value="Search">
-      </form>
-      
-      <form id="form4344" action="fetchLocation" method="post" onsubmit="">
-        
-        <input type="hidden" id="action" name="action" value="fetchLocationByState" />
-      
-      <select name="Points" size="1" id="Points">
-<option value="Andhra Pradesh">Andhra Pradesh</option>
-<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-<option value="Assam">Assam</option>
-<option value="Bihar">Bihar</option>
-<option value="Chhattisgarh">Chhattisgarh</option>
-<option value="Goa">Goa</option>
-<option value="Gujarat">Gujarat</option>
-<option value="Haryana">Haryana</option>
-<option value="Himachal Pradesh">Himachal Pradesh</option>
-<option value="Jammu and Kashmir">Jammu and Kashmir</option>
-<option value="Jharkhand">Jharkhand</option>
-<option value="Karnataka">Karnataka</option>
-<option value="Kerala">Kerala</option>
-<option value="Madhya Pradesh">Madhya Pradesh</option>
-<option value="Maharashtra">Maharashtra</option>
-<option value="Manipur">Manipur</option>
-<option value="Meghalaya">Meghalaya</option>
-<option value="Mizoram">Mizoram</option>
-<option value="Nagaland">Nagaland</option>
-<option value="Odisha">Odisha</option>
-<option value="Punjab">Punjab</option>
-<option value="Rajasthan">Rajasthan</option>
-<option value="Sikkim">Sikkim</option>
-<option value="Tamil Nadu">Tamil Nadu</option>
-<option value="Tripura">Tripura</option>
-<option value="Uttar Pradesh">Uttar Pradesh</option>    
-<option value="Uttarakhand">Uttarakhand</option>
-<option value="West Bengal">West Bengal</option>
-</select>
+					<li>
+					    <div class="row">
+					    <form id="form4343" action="fetchLocation" method="post" onsubmit="return pinCheck();">
+					    <div class="large-12 columns">
+					    	<h6>In an Area</h6>
+					    </div>
+						<div class="large-8 columns">
+						
+							<input type="hidden" id="action" name="action"
+								value="fetchLocationByPincode" /> <input type="text"
+								maxlength="6" onkeypress='return CaptchaNumber(event)'
+								name="fetchpin" id="fetchpin" placeholder="Pin code" />
+						</div>
+						<div class="large-4 columns">
+							<input class="  button tiny" type="submit" value="Search" />
+						</div>
+						</form>
+						</div>
+					
+					</li>
 
-<input class="button tiny" type="submit" value="Search">
 
-</form>
-        <hr />
-        
-        <%
-List list = (List)request.getAttribute( "resultList" );
+
+
+				
+				<li>
+				
+				  <div class="row" style="margin-top:-20px;">
+				  <form id="form4344" action="fetchLocation" method="post" onsubmit="">
+					<div class="large-12 columns">
+						<h6>In a State</h6>
+					</div>
+					<div class="large-8 columns">
+					
+					<input type="hidden" id="action" name="action"
+						value="fetchLocationByState" /> <select name="Points" size="1"
+						id="Points">
+						<option value="Andhra Pradesh">Andhra Pradesh</option>
+						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+						<option value="Assam">Assam</option>
+						<option value="Bihar">Bihar</option>
+						<option value="Chhattisgarh">Chhattisgarh</option>
+						<option value="Goa">Goa</option>
+						<option value="Gujarat">Gujarat</option>
+						<option value="Haryana">Haryana</option>
+						<option value="Himachal Pradesh">Himachal Pradesh</option>
+						<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+						<option value="Jharkhand">Jharkhand</option>
+						<option value="Karnataka">Karnataka</option>
+						<option value="Kerala">Kerala</option>
+						<option value="Madhya Pradesh">Madhya Pradesh</option>
+						<option value="Maharashtra">Maharashtra</option>
+						<option value="Manipur">Manipur</option>
+						<option value="Meghalaya">Meghalaya</option>
+						<option value="Mizoram">Mizoram</option>
+						<option value="Nagaland">Nagaland</option>
+						<option value="Odisha">Odisha</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Rajasthan">Rajasthan</option>
+						<option value="Sikkim">Sikkim</option>
+						<option value="Tamil Nadu">Tamil Nadu</option>
+						<option value="Tripura">Tripura</option>
+						<option value="Uttar Pradesh">Uttar Pradesh</option>
+						<option value="Uttarakhand">Uttarakhand</option>
+						<option value="West Bengal">West Bengal</option>
+					</select> 
+					</div>
+					<div class="large-4 columns">
+					<input class="button tiny" type="submit" value="Search" />
+					
+					
+					</div>
+
+				</form>
+				</div>
+				</li>
+				<hr />
+<% List list = (List)request.getAttribute( "resultList" );
         
 if(list!=null){
 
@@ -354,10 +366,10 @@ String add1 = (String)pd[5];
 //	out.print("<td><a href=\"#\">"+name+"</a></td>");
 //out.print("</tr>");
 %>
-  <script language=javascript>  
+				<script >  
 test.push(["<%= centername %>", <%= xcor %> , <%= ycor %> ,"<%= pin_db %>","<%= contact1 %>","<%= add1 %>" ]);
-</script>  
-<%
+</script>
+				<%
 k++;
 }
 
@@ -365,52 +377,71 @@ k++;
 out.print("</div>");
 } 
 %>
-        
-      </ul>
-      
-        
-    </div>
-    
-  </div>
-    
-  
-  <!-- Footer -->
-  
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="index.html#aboutus">About Vaccinate</a></li>
-            <li><a href="index.html#feedback">Feedback</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="volunteer.html">Volunteer</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-  </footer>
+
+
+			</ul>
+
+
+		</div>
+
+		<!-- Main Content Section -->
+		<!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+		<div class="large-8 columns">
+
+			<h3>
+				Map<small> Get the directions</small>
+			</h3>
+
+			<div id="map_canvas"></div>
+
+		</div>
+
+		
+		<!-- Nav Sidebar -->
+		<!-- This is source ordered to be pulled to the left on larger screens -->
+
+		
+
+	</div>
+
+
+	<!-- Footer -->
+
+	<footer class="row">
+		<div class="large-12 columns">
+			<hr />
+			<div class="row">
+				<div class="large-6 columns">
+					<p>� Copyright no one at all. Go to town.</p>
+				</div>
+				<div class="large-6 columns">
+					<ul class="inline-list right">
+						<li><a href="index.html#aboutus">About Vaccinate</a></li>
+						<li><a href="index.html#feedback">Feedback</a></li>
+						<li><a href="faqs.html">FAQs</a></li>
+						<li><a href="volunteer.html">Volunteer</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 
 
-<!-- Modals -->
- <div id="mapModal" class="reveal-modal medium" data-reveal>
- 		<h3>Directions</h3>
-    	<div id="navMap" class="medium" style="height:420px;width:100%;" ></div>
- 	   <a class="close-reveal-modal">&#215;</a>    
-    </div>
-   
-    
-        
-    <script src="js/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/foundation.topbar.js"></script>
-    <script src="js/foundation.reveal.js"></script>
-        <script>
+	<!-- Modals -->
+	<div id="mapModal" class="reveal-modal medium" data-reveal>
+		<h3>Directions</h3>
+		<div id="navMap" class="medium" style="height: 420px; width: 100%;"></div>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/foundation.min.js"></script>
+	<script src="js/foundation.topbar.js"></script>
+	<script src="js/foundation.reveal.js"></script>
+	<script>
       $(document).foundation();
       $(document).on('opened', '[data-reveal]', function () {
     	  
@@ -421,5 +452,5 @@ out.print("</div>");
     	  
     	});
     </script>
-  </body>
+</body>
 </html>
