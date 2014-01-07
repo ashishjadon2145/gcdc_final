@@ -12,6 +12,9 @@
 	freelancerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=5");
 	volunteerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=6");
 %>
+
+<!--  Upload it to repository -->
+
 <html  lang="en">
   <head>
     <meta charset="utf-8" />
