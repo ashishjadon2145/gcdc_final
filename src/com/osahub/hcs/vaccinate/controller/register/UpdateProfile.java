@@ -145,7 +145,7 @@ public class UpdateProfile extends HttpServlet {
 	}
 		
 	public static ArrayList<Child> getChildListFromParentEmail(String parentEmail){
-		ArrayList<Child> childList = new ArrayList<>();
+		ArrayList<Child> childList = new ArrayList<Child>();
 		QueryResultIterator<Child> childIterator = OfyService.ofy().load().type(Child.class).filter("parentMailId",parentEmail).iterator();
 		if( childIterator != null){
 			while(childIterator.hasNext()){
