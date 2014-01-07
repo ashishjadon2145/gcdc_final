@@ -218,7 +218,7 @@ alert("your browser can't find your location.");
 			<ul class="title-area">
 				<li class="name">
 					<h1>
-						<a href="index.html">Vaccinate</a>
+						<a href="index.jsp">Vaccinate</a>
 					</h1>
 				</li>
 
@@ -416,8 +416,8 @@ out.print("</div>");
 				</div>
 				<div class="large-6 columns">
 					<ul class="inline-list right">
-						<li><a href="index.html#aboutus">About Vaccinate</a></li>
-						<li><a href="index.html#feedback">Feedback</a></li>
+						<li><a href="index.jsp#aboutus">About Vaccinate</a></li>
+						<li><a href="index.jsp#feedback">Feedback</a></li>
 						<li><a href="faqs.html">FAQs</a></li>
 						<li><a href="volunteer.html">Volunteer</a></li>
 					</ul>

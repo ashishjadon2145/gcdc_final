@@ -109,7 +109,7 @@ public String getBirthDate(String tikkaDate){
 		}
 	} catch(Exception e){
 		e.printStackTrace();
-		response.sendRedirect("/index.html?status=021"); //An error occured! please login again	
+		response.sendRedirect("/index.jsp?status=021"); //An error occured! please login again	
 	} 
 %>
 <!DOCTYPE html>

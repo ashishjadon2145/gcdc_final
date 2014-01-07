@@ -60,6 +60,6 @@ public class DailyCallHandler extends HttpServlet {
 	}
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException { 
-		resp.sendRedirect("/index.html");
+		resp.sendRedirect("/index.jsp");
 	}
 }

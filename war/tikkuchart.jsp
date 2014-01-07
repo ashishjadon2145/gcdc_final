@@ -133,7 +133,7 @@ $( "#datepicker" ).datepicker();
 		<header class="page1">
 			<div class="container_12">
 				<div class="grid_12">
-					<h1><a href="index.html" ><img src="images/logo.png" alt="Gerald Harris attorney at law"></a></h1>
+					<h1><a href="index.jsp" ><img src="images/logo.png" alt="Gerald Harris attorney at law"></a></h1>
 					<div class="menu_block">
 						<nav class="">
 							<ul class="sf-menu">

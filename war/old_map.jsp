@@ -156,7 +156,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div class="menu_block">
 						<nav class="">
 							<ul class="sf-menu">
-								<li class=""><a href="/index.html">Home </a> <strong class="hover"></strong></li>
+								<li class=""><a href="/index.jsp">Home </a> <strong class="hover"></strong></li>
 								<li class="current men"><a onClick="goToByScroll('page5'); return false;" href="#">Locator</a> <strong class="hover"></strong></li>
 							</ul>
 						</nav>
