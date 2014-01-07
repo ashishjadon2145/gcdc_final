@@ -16,6 +16,12 @@
     height:425px;
     }
     
+    li.even1{
+    	background-color:#fafafa;
+    	padding-top:4px;
+    	padding-bottom:4px;
+    }
+    
     
     </style>
     <script src="js/modernizr.js"></script>
@@ -128,8 +134,13 @@ bounds.extend(point);
         infowindow.open(map, marker);
       }
     })(marker, i));
+    
     gmarkers.push(marker);
-    side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + test[i][0] + '<\/a><br>';
+    console.log(i);
+      if( (gmarkers.length-1)%2 == 0)
+    side_bar_html += '<li class="odd1"><a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + test[i][0] + '<\/a><\/li>';
+    else
+    	side_bar_html += '<li class="even1"><a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + test[i][0] + '<\/a><\/li>';
   }
 
 map.fitBounds(bounds); 
@@ -314,13 +325,16 @@ alert("your browser can't find your location.");
 
 </form>
         <hr />
+        
         <%
-List list = (List)request.getAttribute( "resultList" ); 
+List list = (List)request.getAttribute( "resultList" );
+        
 if(list!=null){
 
         out.print("<li id=\"numResults\" class=\"right\"> <strong>"+list.size()+"</strong> Results found</li>");
-        out.print("<div class=\"panel\" id=\"side_bar\">");
-        //out.print("<table style=\"width:100%\">");<div id="side_bar"></div> 
+        out.print("<span class=\"clearfix\" ></span>");
+        out.print("<div id=\"side_bar\">");
+         
 
 Iterator<Object[]> i = list.iterator();
 System.out.println("iterator = "+i);
