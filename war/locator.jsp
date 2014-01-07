@@ -8,15 +8,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css5/foundation.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
     
     <style>
     #map_canvas{
     width:100%;
     height:425px;
     }
+    
+    
     </style>
-    <script src="js5/modernizr.js"></script>
+    <script src="js/modernizr.js"></script>
 <script>
 function CaptchaNumber(evt){
 
@@ -38,14 +40,32 @@ return true;
 
 }
 </script>    
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+     
     
     <script>
 
 var test = [];
 var gmarkers = [];
-var side_bar_html = ""; 
+var side_bar_html = "";
+var navMap ;
+
+function initializeNavigate(){
+	var myLatLng = new google.maps.LatLng(24.1089,77.41784);
+    var map_can = document.getElementById('navMap');
+    var map_options = {
+      center: myLatLng,
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    navMap = new google.maps.Map(map_can, map_options);
+}
+	
+google.maps.event.addDomListener(window, 'load', initializeNavigate);
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
 
 function initialize()
 {
@@ -103,7 +123,7 @@ bounds.extend(point);
         infowindow.setContent('<div id="content123" style="color: black; ">'+
     '<h7>'+test[i][0]+'</h7>'+
     '<p>'+test[i][5]+' </br> '+test[i][3]+
-    '</br> '+test[i][4]+' </br> <a href="#" onClick="navigate(\'' + test[i][1] + ',' + test[i][2] + '\')" />get direction</a>  </p>'+
+    '</br> '+test[i][4]+' </br> <a href="#" onClick="navigate(\'' + test[i][1] + ',' + test[i][2] + '\')" />Get direction</a>  </p>'+
 '</div>');
         infowindow.open(map, marker);
       }
@@ -121,8 +141,12 @@ function myclick(i) {
   google.maps.event.trigger(gmarkers[i], "click");
 }
 
+var dirMap;
+var user_coords;
+
 function navigate(destination ){
-  
+ 
+  initializeNavigate();
   var s = destination.toString();
   var fields = s.split(/,/);
   var xValue = fields[0];
@@ -134,11 +158,12 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      var latitude = position.coords.latitude;                    //users current
      var longitude = position.coords.longitude;                 //location
      var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
+     user_coors = coords;
      var directionsService = new google.maps.DirectionsService();
      var directionsDisplay = new google.maps.DirectionsRenderer();
      var mapOptions = //Sets map options
      {
-       zoom: 15,  //Sets zoom level (0-21)
+       zoom: 12,  //Sets zoom level (0-21)
        center: coords, //zoom in on users location
        mapTypeControl: true, //allows you to select map type eg. map or satellite
        navigationControlOptions:
@@ -147,8 +172,8 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
        },
        mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
      };
-     map = new google.maps.Map( /*creates Map variable*/ document.getElementById("map_canvas"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
-     directionsDisplay.setMap(map);
+     dirMap = new google.maps.Map( /*creates Map variable*/ document.getElementById("navMap"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
+     directionsDisplay.setMap(dirMap);
    
      var request = {
        origin: coords,
@@ -158,10 +183,17 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
 
      directionsService.route(request, function (response, status) {
        if (status == google.maps.DirectionsStatus.OK) {
+    	   
          directionsDisplay.setDirections(response);
+         console.log(response);
+         $('#mapModal').foundation('reveal','open');
+         google.maps.event.trigger(navMap, "resize");
+         
        }
      });
    });
+   
+   
 }   
 else
 alert("your browser can't find your location.");
@@ -240,7 +272,7 @@ alert("your browser can't find your location.");
         <input type="hidden" id="action" name="action" value="fetchLocationByPincode" />
         <input type="text" maxlength="6" onkeypress='return CaptchaNumber(event)' name="fetchpin" id="fetchpin" placeholder="Pin code">
         </li>
-<input class="button small" type="submit" value="Search">
+<input class="button tiny" type="submit" value="Search">
       </form>
       
       <form id="form4344" action="fetchLocation" method="post" onsubmit="">
@@ -278,7 +310,7 @@ alert("your browser can't find your location.");
 <option value="West Bengal">West Bengal</option>
 </select>
 
-<input class="button small" type="submit" value="Search">
+<input class="button tiny" type="submit" value="Search">
 
 </form>
         <hr />
@@ -351,17 +383,29 @@ out.print("</div>");
 
 
 
-
+<!-- Modals -->
+ <div id="mapModal" class="reveal-modal medium" data-reveal>
+ 		<h3>Directions</h3>
+    	<div id="navMap" class="medium" style="height:420px;width:100%;" ></div>
+ 	   <a class="close-reveal-modal">&#215;</a>    
+    </div>
    
     
         
-    <script src="js5/jquery.js"></script>
-    <script src="js5/foundation.min.js"></script>
-    <script src="js5/foundation.topbar.js"></script>
-    <!-- <script src="js/foundation.orbit.js"></script> -->
-    <!-- <script src="js/foundation/foundation.abide.js"></script>-->
-    <script>
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/foundation.topbar.js"></script>
+    <script src="js/foundation.reveal.js"></script>
+        <script>
       $(document).foundation();
+      $(document).on('opened', '[data-reveal]', function () {
+    	  
+    	  var currentCenter = dirMap.getCenter();  // Get current center before resizingM
+    	  google.maps.event.trigger(dirMap, "resize");
+    	  dirMap.setCenter(currentCenter); // Re-set previous center
+    	  dirMap.setZoom(15);
+    	  
+    	});
     </script>
   </body>
 </html>
