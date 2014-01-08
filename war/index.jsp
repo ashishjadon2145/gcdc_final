@@ -265,7 +265,7 @@
 			
 			<h3>Job Opportunity</h3>
 			<ul class="vcard">
-				<li class="street-address">If you are a medical prefessional and know how to give vaccines, then you can </li>
+				<li class="street-address">If you are a medical professional and know how to give vaccines, then you can </li>
 				<li class="locality">Step1 : <a href="<%=freelancerLoginUrl%>">Register</a> on our website to upload your documents and information.</li>
 				<li class="locality">Step2 : Your interview will be taken by Vaccinate Officials</li>
 				<li class="locality">Step3 : Once verified, parents can search you and book appointment for home vaccination.</li>
