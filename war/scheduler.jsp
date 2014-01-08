@@ -389,7 +389,7 @@ HPV</strong> </td>
     		} */
     	
       function showTable(schedule){
-    	  var startContent = "<div class='large-3 columns'><strong> Child Name: </div><div class='large-3 columns pull-1' style='text-transform:uppercase'>"+ $('#cName').val() + "</strong> </div> <div class='large-3 columns'> <strong>Date of Birth : </div><div class='large-3 columns pull-1'>" + $('#datepicker').val() + "</strong></div> <br/> <hr />"; 
+    	  var startContent = "<div class='large-3 columns'><strong> Child Name: </div><div class='large-3 columns pull-1' style='text-transform:uppercase'>"+ $('#cName').val() + "</strong> </div> <div class='large-3 columns'> <strong>Date of Birth : </div><div class='large-3 columns pull-1'>" + $('#dob').val() + "</strong></div> <br/> <hr />"; 
     	  
     	  var tableContent =  startContent+ "<table id='schtable'> <thead> <tr> <th> Age </th> <th width =\"100\"> Due Date </th> <th width=\"170\"> Vaccine </th> <th> Comments </th> </tr> </thead> <tbody> ";
     	  
