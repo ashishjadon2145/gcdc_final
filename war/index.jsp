@@ -1,5 +1,6 @@
 <!doctype html>
 <%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
 <%!
 	String parentLoginUrl ;
 	String hospitalLoginUrl ;
@@ -11,6 +12,7 @@
 	hospitalLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=2");
 	freelancerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=5");
 	volunteerLoginUrl = UserServiceFactory.getUserService().createLoginURL("/login?role=6");
+	UserService userService = UserServiceFactory.getUserService();
 %>
 
 <!--  Upload it to repository  |Got it Ashish -->
@@ -407,10 +409,11 @@
       
       var status = getQueryVariable("status");
       
-      var errors= [ 'you are not authorized to access this section.</br></br>Do Not try this again. </br></br><b>It might be dangerous!</b>',
-                    'you are not authorized to access this section.</br></br>Please choose correct role and try again!',
-                    'you are not logged in.</br></br>Please try logging in again!',
-                    'you are not logged in! try again!'
+      var errors= [ 'You are not authorized to access this section.</br></br>Do Not try this again. </br></br><b>It might be dangerous!</b>',
+                    'You are not authorized to access this section.</br></br>Please choose correct role and try again!',
+                    'You are not logged in.</br></br>Please try logging in again!',
+                    'You are not logged in! try again!',
+                    '<a href="<%= userService.createLogoutURL("/index.jsp")%>" >Log out</a> of your currently logged in google account and try again.'
                     ];
       
       if(status){

@@ -261,8 +261,7 @@ $(document).ready(function () {
 	
 		var dob = $('#dob').val();
 		  data = getVaccinationSchedule(dob);
-	      handleClientLoad();
-	      //handleAuthClick();
+	      handleClientLoad();      
 		
 		return;
 	});

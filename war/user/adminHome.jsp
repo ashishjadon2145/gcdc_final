@@ -79,9 +79,10 @@ public String getBirthDate(String tikkaDate){
 	  	userService = UserServiceFactory.getUserService();
 		p1 = OfyService.ofy().load().type(Person.class).id(userId).get();
 		if(p1 == null){
+			response.sendRedirect("/index.jsp?status=5"); //An error occured! please login again	
 			response.getWriter().println("log out your currently logged in google account and try again.");
 		}else{
-		
+			try{
 					if(p1.image1 != null){
 						noProfilePicture =false;
 			        	ImagesService imagesService = ImagesServiceFactory.getImagesService();
@@ -89,7 +90,9 @@ public String getBirthDate(String tikkaDate){
 					}else{
 			        	noProfilePicture =true;
 					}
-		
+			}catch(Exception e){
+				noProfilePicture =true;
+			}
 			
 			lastLogin = p1.lastLogin;
 			name = p1.name;
@@ -109,7 +112,7 @@ public String getBirthDate(String tikkaDate){
 		}
 	} catch(Exception e){
 		e.printStackTrace();
-		response.sendRedirect("/index.jsp?status=021"); //An error occured! please login again	
+		response.sendRedirect("/index.jsp?status=5"); //An error occured! please login again	
 	} 
 %>
 <!DOCTYPE html>
