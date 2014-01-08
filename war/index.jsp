@@ -413,7 +413,8 @@
                     'You are not authorized to access this section.</br></br>Please choose correct role and try again!',
                     'You are not logged in.</br></br>Please try logging in again!',
                     'You are not logged in! try again!',
-                    '<a href="<%= userService.createLogoutURL("/index.jsp")%>" >Log out</a> of your currently logged in google account and try again.'
+                    '<a href="<%= userService.createLogoutURL("/index.jsp")%>" >Log out</a> of your currently logged in google account and try again.',
+                    '<h3>Hey!</h3> Don\'t try to fool us </h3>'
                     ];
       
       if(status){
