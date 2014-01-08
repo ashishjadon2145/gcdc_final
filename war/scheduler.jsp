@@ -258,20 +258,32 @@ HPV</strong> </td>
 			<div class="large-3 pull-9 columns">
 				<h4>Your Child's Detail</h4>
 				<hr />
+				
 				<ul class="side-nav">
+					
 					<li>
-						<input type="text" name="cName" id="cName" placeholder="Your Child's Name">
+						<div class="name-field">
+						<label></label>
+						<input type="text" name="cName" id="cName" placeholder="Your Child's Name" required pattern="[a-zA-Z]+">
+						<small class="error" id="nameError">Name must be alphabets</small>		
+						</div>
 						
 					</li>
-					<li>
-						<input type="text" placeholder="Date of Birth" id="dob" data-date-format="dd-mm-yyyy" readonly/>
+					<li >
+						<div class="dob-field">
+						<label>	</label>
+						<input type="text" placeholder="Date of Birth" id="dob" data-date-format="dd-mm-yyyy"  readonly="true" required >
+						<small class="error" id="dobError">Please select a date</small>
+						
+						</div>
 					</li>
 					<li>
 						
 					</li>
 				
 				</ul>
-				<a href="#" class="button small" id="generate" style="width:100%;">View Schedule</a>
+				<a href="#" id="generate" class="tiny button" style="width:100%;" >View Schedule</a>
+				</form>
 				
 			</div>
 
@@ -356,6 +368,8 @@ HPV</strong> </td>
 	<script src="js/foundation.topbar.js"></script>
 	<script src="js/foundation-datepicker.js"></script>
 	<script src="js/foundation.reveal.js"></script>
+	<script src="js/foundation.abide.js"></script>
+	
 	<script src="js/date.js"></script>
 	<!-- <script src="js/jspdf.min.js"></script>
 	<script src="js/jspdf.plugin.from_html.js"></script>
@@ -367,6 +381,7 @@ HPV</strong> </td>
 
 	<script>
 	   $('.schBtns').hide();
+	   	$('.error').hide();
 	     
     	$(document).foundation();
     	
@@ -431,27 +446,29 @@ HPV</strong> </td>
         		return '';
         }
     }).on('changeDate', function (ev) {
-        /* if (ev.date.valueOf() > checkout.date.valueOf()) {
-            var newDate = new Date(ev.date)
-            newDate.setDate(newDate.getDate() + 1);
-            checkout.setValue(newDate);
-        }
-        checkin.hide(); */
-        //$('#datepicker')[0].focus();
+        return;
     }).data('datepicker');
-    /* var checkout = $('#dpd2').fdatepicker({
-        onRender: function (date) {
-            return date.valueOf() &lt;= checkin.date.valueOf() ? 'disabled' : '';
-        }
-    }).on('changeDate', function (ev) {
-        checkout.hide();
-    }).data('datepicker'); */
-    	  
-    	
+
     	 $('#dob').fdatepicker();  
-      //});
-      //code for the generate function click
+      
+      function validateForm(){
+    	  $('.error').hide();
+    	  var name = $('#cName').val().trim();
+    	  if(!name.match(/^[a-zA-Z]+$/) && name !="")
+    	  {  	$('#nameError').show(); return false; }
+    	  var dob = $('#dob').val().trim();
+    	  if(dob =="" ){
+    		  $('#dobError').show(); return false;
+    	  }
+    		 
+    	  return true;  
+    	  
+    	  
+      }
+      
+      
       $('#generate').click(function(){
+    	  if(validateForm()){
     	  var dob = $('#dob').val();
     	  var schedule = getPersonalVaccinationSchedule(dob);
     	  showTable(schedule);
@@ -462,6 +479,7 @@ HPV</strong> </td>
     		  'filename' : 'Vaccinate_'+$('#cName').val(),
     	  	  'sitename' : 'Vaccinate India'
     	  });
+      }
     	  
       });
       
@@ -473,6 +491,7 @@ HPV</strong> </td>
     	  
       });
       
+
 
     	 
     </script>
