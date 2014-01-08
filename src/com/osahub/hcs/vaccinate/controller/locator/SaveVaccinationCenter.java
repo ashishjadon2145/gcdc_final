@@ -29,9 +29,16 @@ public class SaveVaccinationCenter extends HttpServlet {
 		double yCor = Double.parseDouble(request.getParameter("yCor"));
 		int pincode = Integer.parseInt(request.getParameter("pincode"));
 		String add1 = request.getParameter("add1");
+		String website = request.getParameter("website");
+		int type = Integer.parseInt(request.getParameter("vacciCenterType"));
 		String timing = request.getParameter("timing");
+		String homeServiceRadio = request.getParameter("homeServiceRadio");
+		boolean homeVaccinationAvailable = false;
+        if(homeServiceRadio.equalsIgnoreCase("Yes"))
+        	homeVaccinationAvailable = true;
+		String state = request.getParameter("state");
 
-		VaccinationCenter pin1 = new VaccinationCenter(name, pincode, xCor,yCor, contact1, add1, timing, "ADMIN@OSAHUB.COM");
+		VaccinationCenter pin1 = new VaccinationCenter(name, pincode, xCor,yCor, contact1, add1, timing, "ADMIN@OSAHUB.COM",website,type,homeVaccinationAvailable, state);
 
 		ofy().save().entities(pin1);
 		ofy().clear();

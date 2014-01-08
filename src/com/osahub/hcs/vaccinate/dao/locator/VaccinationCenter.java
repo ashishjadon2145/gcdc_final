@@ -103,7 +103,7 @@ public class VaccinationCenter {
 
 	}
 
-	public VaccinationCenter(String name, int pincode, double xCor, double yCor, String contact1, String add1, String workingHours, String refrence) {
+	public VaccinationCenter(String name, int pincode, double xCor, double yCor, String contact1, String add1, String workingHours, String refrence, String website, int type,boolean homeVaccinationAvailable, String state) {
 		this.id = name;
 		this.name = name;
 		this.pincode = pincode;
@@ -115,6 +115,10 @@ public class VaccinationCenter {
 		this.isVerified = 1;
 		this.hasMapCordinate = true;
 		this.refrence = refrence;
+		this.website = website;
+		this.type = type;
+		this.homeVaccinationAvailable = homeVaccinationAvailable;
+		this.state=state;
 		this.createdOn = new Date().toString();
 	}
 

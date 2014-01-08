@@ -67,7 +67,9 @@
 			<!-- Parent tab start-->
 			<li><label>Parent</label></li>
           		<!-- Scheduler tab start-->
-	          	<li  class=""><a href="scheduler.jsp">Scheduler</a>
+	          	<li  class="">
+	          	
+	          		<a href="scheduler.jsp"><span data-tooltip class="has-tip tip-right" title="Find the personal vaccination scheduler for your child">Scheduler</span></a>
 
 	          	</li>
           		<!-- Scheduler tab end-->

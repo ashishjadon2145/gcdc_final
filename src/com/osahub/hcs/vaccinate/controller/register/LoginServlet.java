@@ -36,8 +36,17 @@ public class LoginServlet extends HttpServlet {
 	private static final int VOLUNTEER = 6;  
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException { 
+		
+		 String roleFromReq = req.getParameter("role");
+		 if(roleFromReq == null)
+		 {
+		  resp.sendRedirect("/index.jsp?status=6");
+		  
+		 }else{
+		
 		this.role= Integer.parseInt(req.getParameter("role"));
 		doPost(req, resp);
+		 }
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse resp) throws IOException {

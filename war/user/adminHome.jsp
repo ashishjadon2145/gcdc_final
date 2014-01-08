@@ -479,7 +479,6 @@ public String getBirthDate(String tikkaDate){
 					vacc. center contact  : <input type="text" name="contact1"/>
 					vacc. center address  : <input type="text" name="add1"/>
 					vacc. center timing  : <input type="text" value="Not Available" name="timing"/>
-					
 					vacc. center website  : <input type="text" name="website"/>
 								<div class="five columns">
 										<div class="twelve columns">
@@ -498,10 +497,48 @@ public String getBirthDate(String tikkaDate){
 		        							<label>Do you provide home vaccination service?</label>
 		        							<input type="radio" name="homeServiceRadio" value="YES" id="pokemonRed"> Yes
 											<input type="radio" checked name="homeServiceRadio" value="NO" id="pokemonBlue"> No
-										</div> 
-	
-					<input type="submit" value="login"/>
-				</form>
+										</div>
+
+								<div class="four columns">
+									<label>State</label> <select id="state" name="state" size="1">
+									<option value="1">Andaman and Nicobar Islands</option>
+									<option value="2">Andhra Pradesh</option>
+									<option value="3">Arunachal Pradesh</option>
+									<option value="4">Assam</option>
+									<option value="5">Bihar</option>
+									<option value="6">Chandigarh</option>
+									<option value="7">Chhattisgarh</option>
+									<option value="8">Dadra and Nagar Haveli</option>
+									<option value="9">Daman and Diu</option>
+									<option value="10">Delhi</option>
+									<option value="11">Goa</option>
+									<option value="12">Gujarat</option>
+									<option value="13">Haryana</option>
+									<option value="14">Himachal Pradesh</option>
+									<option value="15">Jammu and Kashmir</option>
+									<option value="16">Jharkhand</option>
+									<option value="17">Karnataka</option>
+									<option value="18">Kerala</option>
+									<option value="19">Lakshadweep</option>
+									<option value="20">Madhya Pradesh</option>
+									<option value="21">Maharashtra</option>
+									<option value="22">Manipur</option>
+									<option value="23">Meghalaya</option>
+									<option value="24">Mizoram</option>
+									<option value="25">Nagaland</option>
+									<option value="26">Odisha</option>
+									<option value="27">Puducherry</option>
+									<option value="28">Punjab</option>
+									<option value="29">Rajasthan</option>
+									<option value="30">Sikkim</option>
+									<option value="31 Nadu">Tamil Nadu</option>
+									<option value="32">Tripura</option>
+									<option value="33">Uttar Pradesh</option>    
+									<option value="34">Uttarakhand</option>
+									<option value="35">West Bengal</option>
+
+									</select> <input type="submit" value="login" />
+							</form>
 				</div>
 				<div class="row">	
 				</div> 

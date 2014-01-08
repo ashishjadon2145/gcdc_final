@@ -372,34 +372,42 @@ alert("your browser can't find your location.");
 					<input type="hidden" id="action" name="action"
 						value="fetchLocationByState" /> <select name="Points" size="1"
 						id="Points">
-						<option value="Andhra Pradesh">Andhra Pradesh</option>
-						<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-						<option value="Assam">Assam</option>
-						<option value="Bihar">Bihar</option>
-						<option value="Chhattisgarh">Chhattisgarh</option>
-						<option value="Goa">Goa</option>
-						<option value="Gujarat">Gujarat</option>
-						<option value="Haryana">Haryana</option>
-						<option value="Himachal Pradesh">Himachal Pradesh</option>
-						<option value="Jammu and Kashmir">Jammu and Kashmir</option>
-						<option value="Jharkhand">Jharkhand</option>
-						<option value="Karnataka">Karnataka</option>
-						<option value="Kerala">Kerala</option>
-						<option value="Madhya Pradesh">Madhya Pradesh</option>
-						<option value="Maharashtra">Maharashtra</option>
-						<option value="Manipur">Manipur</option>
-						<option value="Meghalaya">Meghalaya</option>
-						<option value="Mizoram">Mizoram</option>
-						<option value="Nagaland">Nagaland</option>
-						<option value="Odisha">Odisha</option>
-						<option value="Punjab">Punjab</option>
-						<option value="Rajasthan">Rajasthan</option>
-						<option value="Sikkim">Sikkim</option>
-						<option value="Tamil Nadu">Tamil Nadu</option>
-						<option value="Tripura">Tripura</option>
-						<option value="Uttar Pradesh">Uttar Pradesh</option>
-						<option value="Uttarakhand">Uttarakhand</option>
-						<option value="West Bengal">West Bengal</option>
+						<option value="1">Andaman and Nicobar Islands</option>
+						<option value="2">Andhra Pradesh</option>
+						<option value="3">Arunachal Pradesh</option>
+						<option value="4">Assam</option>
+						<option value="5">Bihar</option>
+						<option value="6">Chandigarh</option>
+						<option value="7">Chhattisgarh</option>
+						<option value="8">Dadra and Nagar Haveli</option>
+						<option value="9">Daman and Diu</option>
+						<option value="10">Delhi</option>
+						<option value="11">Goa</option>
+						<option value="12">Gujarat</option>
+						<option value="13">Haryana</option>
+						<option value="14">Himachal Pradesh</option>
+						<option value="15">Jammu and Kashmir</option>
+						<option value="16">Jharkhand</option>
+						<option value="17">Karnataka</option>
+						<option value="18">Kerala</option>
+						<option value="19">Lakshadweep</option>
+						<option value="20">Madhya Pradesh</option>
+						<option value="21">Maharashtra</option>
+						<option value="22">Manipur</option>
+						<option value="23">Meghalaya</option>
+						<option value="24">Mizoram</option>
+						<option value="25">Nagaland</option>
+						<option value="26">Odisha</option>
+						<option value="27">Puducherry</option>
+						<option value="28">Punjab</option>
+						<option value="29">Rajasthan</option>
+						<option value="30">Sikkim</option>
+						<option value="31 Nadu">Tamil Nadu</option>
+						<option value="32">Tripura</option>
+						<option value="33">Uttar Pradesh</option>    
+						<option value="34">Uttarakhand</option>
+						<option value="35">West Bengal</option>
+
 					</select> 
 					</div>
 					<div class="large-4 columns">
@@ -485,7 +493,7 @@ out.print("</div>");
 			<hr />
 			<div class="row">
 				<div class="large-6 columns">
-					<p>© Copyright no one at all. Go to town.</p>
+					<p>ï¿½ Copyright no one at all. Go to town.</p>
 				</div>
 				<div class="large-6 columns">
 					<ul class="inline-list right">
