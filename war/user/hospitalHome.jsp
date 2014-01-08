@@ -228,10 +228,10 @@ function placeMarker(location) {
         infowindow.open(map, marker);
         document.getElementById("addressLine1").value=results[1].formatted_address;
       } else {
-        alert('No results found');
+    	  alert('please try some other location');
       }
     } else {
-      alert('Geocoder failed due to: ' + status);
+    	alert('please try some other location');
     }
   });
 
