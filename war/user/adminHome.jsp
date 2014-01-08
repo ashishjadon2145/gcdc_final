@@ -80,7 +80,7 @@ public String getBirthDate(String tikkaDate){
 		p1 = OfyService.ofy().load().type(Person.class).id(userId).get();
 		if(p1 == null){
 			response.sendRedirect("/index.jsp?status=5"); //An error occured! please login again	
-			response.getWriter().println("log out your currently logged in google account and try again.");
+			
 		}else{
 			try{
 					if(p1.image1 != null){
